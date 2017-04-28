@@ -24,16 +24,16 @@ export default {
 			pageHeight: 0,
 			viewportHeight: 0,
 			pageWidth: 0,
-			viewportWidth: 0
+			viewportWidth: 0,
+			dublicates: false
 		}
 	},
 
 	mounted() {
-		var additions = this.makeDublicates() - 1;
 		window.onresize = () => {
-			this.getDimensions(additions)
+			this.getDimensions()
 		};
-		this.getDimensions(additions)	
+		this.getDimensions()	
 	},
 
 	methods: {
@@ -48,7 +48,11 @@ export default {
 				var y = this.$refs.container.scrollTop
 				if (y + this.viewportHeight > this.pageHeight) {
 					this.$refs.container.scrollTop = y % this.pageHeight
+				}else if(y + this.viewportHeight == this.pageHeight) {
+					this.$refs.container.scrollTop = 0
 				}
+
+				console.log(y + this.viewportHeight, this.pageHeight)
 			}else{
 				var x = this.$refs.container.scrollLeft
 				if (x + this.viewportWidth >= this.pageWidth) {
@@ -62,13 +66,17 @@ export default {
 		 * 
 		 * @return {integer} divisions
 		 */
-		getDimensions(additions) {
+		getDimensions() {
 			const numOfItems = this.$refs.container.childElementCount
 			var itemWidth = this.$refs.container.childNodes[0].clientWidth
 			var itemHeight = this.$refs.container.childNodes[0].clientHeight
-			
+
+			if(this.dublicates === false) {
+				this.dublicates = this.makeDublicates() - 1;
+			}
+
 			this.pageHeight = itemHeight * numOfItems
-			this.pageWidth = itemWidth * (numOfItems + additions)
+			this.pageWidth = itemWidth * (numOfItems + this.dublicates)
 			this.viewportHeight = this.$refs.container.clientHeight
 			this.viewportWidth = this.$refs.container.clientHeight
 		},
