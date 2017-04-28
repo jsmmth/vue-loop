@@ -51,8 +51,6 @@ export default {
 				}else if(y + this.viewportHeight == this.pageHeight) {
 					this.$refs.container.scrollTop = 0
 				}
-
-				console.log(y + this.viewportHeight, this.pageHeight)
 			}else{
 				var x = this.$refs.container.scrollLeft
 				if (x + this.viewportWidth >= this.pageWidth) {
