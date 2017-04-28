@@ -7,27 +7,11 @@
   'base/base',
   'base/helpers';
 
-
-.loop-container {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	overflow-y: scroll;
-  	-webkit-overflow-scrolling: touch;
-}
-
-.loop-container.full {
-	align-items: stretch;
-}
-
-.loop-container.horizontal {
-	flex-direction: column;
-	overflow-y: hidden;
-	overflow-x: scroll;
-}
-
 .item {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+
+	width: 100px;
+	height: 100px;
 }

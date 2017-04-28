@@ -16,8 +16,8 @@
   },
   "dependencies": {
     "axios": "^0.16.1",
-    "babel-loader": "^7.0.0",
     "lodash": "^4.17.4",
     "vue": "^2.2.6"
   }
+
 }

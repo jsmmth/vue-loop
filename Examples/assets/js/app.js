@@ -6,12 +6,13 @@
 require('./bootstrap');
 
 
+import LoopContainer from './components/LoopContainer';
 
 new Vue({
 	el: '#app',
 
 	//Import the loop container
 	components: {
-		
+		LoopContainer
 	}
 });

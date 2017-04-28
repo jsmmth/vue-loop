@@ -5,10 +5,40 @@
   <title>Static Starter</title>
   <link rel="stylesheet" href="css/app.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+  	.item {
+  		min-width: 250px;
+  		height: 250px;
+  	}
+
+  	.loop-container {
+  		min-height: 250px;
+  		max-height: 500px;
+  		min-width: 250px;
+  		max-width: 500px;
+  		margin: 20px auto;
+  	}
+
+  </style>
 </head>
 <body>
  	<div id="app">
-		<loop-container>
+		<loop-container :full="false">
+			<div class="item" style="background: red;">
+					1
+			</div>
+			<div class="item" style="background: blue;">
+					2
+			</div>
+			<div class="item" style="background: yellow;">
+					3
+			</div>
+			<div class="item" style="background: pink;">
+					4
+			</div>
+		</loop-container>
+
+		<loop-container :full="false" :horizontal="true">
 			<div class="item" style="background: red;">
 					1
 			</div>
