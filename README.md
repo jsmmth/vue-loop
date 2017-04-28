@@ -34,6 +34,11 @@ new Vue({
 </vue-loop>
 ```
 
+## Optional Props
+| Prop          | Type          | Default       |
+| ------------- |:-------------:|:-------------:|
+| full          | Boolean       | true          |
+| horizontal    | Boolean       | false         |
 
 ## Features
 - Full page content looping
