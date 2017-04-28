@@ -22,9 +22,9 @@ export default {
 	data() {
 		return {
 			pageHeight: 0,
-  			viewportHeight: 0,
-  			pageWidth: 0,
-  			viewportWidth: 0
+			viewportHeight: 0,
+			pageWidth: 0,
+			viewportWidth: 0
 		}
 	},
 
@@ -32,8 +32,8 @@ export default {
 		window.onresize = () => {
 			this.getDimensions()
 		};
-    	this.getDimensions()	
-    },
+		this.getDimensions()	
+	},
 
 	methods: {
 
@@ -104,7 +104,7 @@ export default {
 .loop-container {
 	display: block;
 	overflow-y: scroll;
-  	-webkit-overflow-scrolling: touch;
+	-webkit-overflow-scrolling: touch;
 }
 
 .loop-container.full {
