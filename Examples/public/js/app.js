@@ -1713,6 +1713,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 	methods: {
+
+		/**
+   * Scroll handler
+   * 
+   * @param  {object} e Event
+   */
 		scrollHandler: function scrollHandler(e) {
 			if (!this.horizontal) {
 				var y = this.$refs.container.scrollTop;
@@ -1725,9 +1731,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 					this.$refs.container.scrollLeft = x % this.pageWdith;
 				}
 			}
-
-			console.log(x + this.viewportWidth, this.pageWidth);
 		},
+
+
+		/**
+   * Get dimentions of the page and viewport
+   * 
+   * @return {integer} divisions
+   */
 		getDimensions: function getDimensions() {
 			var numOfItems = this.$refs.container.childElementCount;
 			var itemWidth = this.$refs.container.childNodes[0].clientWidth;
@@ -1739,6 +1750,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			this.viewportHeight = this.$refs.container.clientHeight;
 			this.viewportWidth = this.$refs.container.clientHeight;
 		},
+
+
+		/**
+   * Make dublicates so the scroll is smooth
+   */
 		makeDublicates: function makeDublicates() {
 			if (this.horizontal) {
 				var containerSize = this.$refs.container.clientWidth;
