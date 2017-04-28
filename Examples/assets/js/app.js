@@ -5,14 +5,13 @@
  */
 require('./bootstrap');
 
-
-import LoopContainer from './components/LoopContainer';
+import VueLoop from 'vue-loop';
 
 new Vue({
 	el: '#app',
 
 	//Import the loop container
 	components: {
-		LoopContainer
+		VueLoop
 	}
 });
