@@ -1,0 +1,12 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: $text-font-stack;
+  color: $text-black;
+  background-color: $bg-white;
+  -webkit-font-smoothing: antialiased;
+}

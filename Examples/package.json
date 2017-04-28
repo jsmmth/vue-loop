@@ -1,0 +1,23 @@
+{
+  "name": "static-starter",
+  "version": "1.0.0",
+  "description": "🏃🏻",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development webpack --progress --hide-modules",
+    "watch": "cross-env NODE_ENV=development webpack --watch --progress --hide-modules",
+    "hot": "cross-env NODE_ENV=development webpack-dev-server --inline --hot",
+    "production": "cross-env NODE_ENV=production webpack --progress --hide-modules"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.0.0",
+    "cross-env": "^4.0.0",
+    "laravel-mix": "^0.11.3",
+    "webpack": "^2.4.1"
+  },
+  "dependencies": {
+    "axios": "^0.16.1",
+    "babel-loader": "^7.0.0",
+    "lodash": "^4.17.4",
+    "vue": "^2.2.6"
+  }
+}

@@ -1,0 +1,33 @@
+// 1. Configuration and helpers
+@import
+  'utils/variables';
+
+// 2. Base styles
+@import
+  'base/base',
+  'base/helpers';
+
+
+.loop-container {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	overflow-y: scroll;
+  	-webkit-overflow-scrolling: touch;
+}
+
+.loop-container.full {
+	align-items: stretch;
+}
+
+.loop-container.horizontal {
+	flex-direction: column;
+	overflow-y: hidden;
+	overflow-x: scroll;
+}
+
+.item {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
