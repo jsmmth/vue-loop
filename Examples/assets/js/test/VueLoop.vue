@@ -30,10 +30,11 @@ export default {
 	},
 
 	mounted() {
-		window.onresize = () => {
-			this.getDimensions()
-		};
 		this.getDimensions()	
+
+		window.addEventListener('resize', () => {
+			this.getDimensions()
+		}, true);
 	},
 
 	methods: {
