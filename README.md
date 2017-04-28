@@ -1,5 +1,7 @@
+<img width="848" alt="screen shot 2017-04-28 at 7 19 00 pm" src="https://cloud.githubusercontent.com/assets/3231370/25550501/93bef97a-2c47-11e7-83c6-37534fdf4d04.png">
+
 # Vue Loop
-We've had a lot of people compliment us on the infinate content loop we did over at [Look Studios](http://lookstudios.xyz) so I decided to build a simple .vue file for all you vue fans to use.
+We've had a lot of people compliment us on the infinate content loop we did over at [Look Studios](http://lookstudios.xyz). We decided to build a simple .vue file for all you vue fans to use.
 
 ## Installation
 - `npm install vue-loop --save`
