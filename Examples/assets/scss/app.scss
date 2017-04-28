@@ -7,11 +7,30 @@
   'base/base',
   'base/helpers';
 
+
+
+//Styles for the examples
+h1 {
+	font-size: 64px;
+	color: #222222;
+	margin: 60px 0 26px 0;
+	font-weight: 300;
+}
+
+p {
+	font-size: 22px;
+	color: #747474;
+	padding: 0px;
+	margin: 0px;
+}
+
 .item {
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-
-	width: 100px;
-	height: 100px;
+	background: #006AFF;
+	font-family: MaisonNeue-Light, sans-serif;
+	font-size: 64px;
+	color: #FFFFFF;
 }
