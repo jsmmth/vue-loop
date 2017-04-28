@@ -1,5 +1,5 @@
 {
-	"name": "content-loop",
-	"version": "0.1.0",
+	"name": "vue-loop",
+	"version": "0.1.1",
 	"main": "LoopContainer.vue"
 }
