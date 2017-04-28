@@ -29,10 +29,12 @@ export default {
 	},
 
 	mounted() {
+		var additions = this.makeDublicates() - 1;
+
 		window.onresize = () => {
-			this.getDimensions()
+			this.getDimensions(additions)
 		};
-		this.getDimensions()	
+		this.getDimensions(additions)	
 	},
 
 	methods: {
@@ -61,12 +63,11 @@ export default {
 		 * 
 		 * @return {integer} divisions
 		 */
-		getDimensions() {
+		getDimensions(additions) {
 			const numOfItems = this.$refs.container.childElementCount
 			var itemWidth = this.$refs.container.childNodes[0].clientWidth
 			var itemHeight = this.$refs.container.childNodes[0].clientHeight
-			var additions = this.makeDublicates() - 1;
-
+			
 			this.pageHeight = itemHeight * numOfItems
 			this.pageWidth = itemWidth * (numOfItems + additions)
 			this.viewportHeight = this.$refs.container.clientHeight

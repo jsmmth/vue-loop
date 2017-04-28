@@ -21159,9 +21159,9 @@ var Component = __webpack_require__(39)(
   /* cssModules */
   null
 )
-Component.options.__file = "/Users/josephsmith/Sites/vue-content-loop/Examples/node_modules/vue-loop/LoopContainer.vue"
+Component.options.__file = "/Users/josephsmith/Sites/vue-content-loop/Examples/node_modules/vue-loop/VueLoop.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] LoopContainer.vue: functional components are not supported with templates, they should use render functions.")}
+if (Component.options.functional) {console.error("[vue-loader] VueLoop.vue: functional components are not supported with templates, they should use render functions.")}
 
 /* hot reload */
 if (false) {(function () {
@@ -21170,9 +21170,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-399a22e6", Component.options)
+    hotAPI.createRecord("data-v-0b93c833", Component.options)
   } else {
-    hotAPI.reload("data-v-399a22e6", Component.options)
+    hotAPI.reload("data-v-0b93c833", Component.options)
   }
 })()}
 
@@ -21256,7 +21256,7 @@ module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-399a22e6", module.exports)
+     require("vue-hot-reload-api").rerender("data-v-0b93c833", module.exports)
   }
 }
 
@@ -21271,13 +21271,13 @@ var content = __webpack_require__(33);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(42)("d3eb5c5c", content, false);
+var update = __webpack_require__(42)("fda16132", content, false);
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
  if(!content.locals) {
-   module.hot.accept("!!../css-loader/index.js!../vue-loader/lib/style-compiler/index.js?{\"id\":\"data-v-399a22e6\",\"scoped\":false,\"hasInlineConfig\":true}!../vue-loader/lib/selector.js?type=styles&index=0!./LoopContainer.vue", function() {
-     var newContent = require("!!../css-loader/index.js!../vue-loader/lib/style-compiler/index.js?{\"id\":\"data-v-399a22e6\",\"scoped\":false,\"hasInlineConfig\":true}!../vue-loader/lib/selector.js?type=styles&index=0!./LoopContainer.vue");
+   module.hot.accept("!!../css-loader/index.js!../vue-loader/lib/style-compiler/index.js?{\"id\":\"data-v-0b93c833\",\"scoped\":false,\"hasInlineConfig\":true}!../vue-loader/lib/selector.js?type=styles&index=0!./VueLoop.vue", function() {
+     var newContent = require("!!../css-loader/index.js!../vue-loader/lib/style-compiler/index.js?{\"id\":\"data-v-0b93c833\",\"scoped\":false,\"hasInlineConfig\":true}!../vue-loader/lib/selector.js?type=styles&index=0!./VueLoop.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
