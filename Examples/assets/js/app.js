@@ -5,8 +5,8 @@
  */
 require('./bootstrap');
 
-//import VueLoop from 'vue-loop';
-import VueLoop from './test/VueLoop';
+import VueLoop from 'vue-loop';
+//import VueLoop from './test/VueLoop';
 
 new Vue({
 	el: '#app',
