@@ -11,28 +11,28 @@ We've had a lot of people compliment us on the infinite content loop we did over
 import VueLoop from 'vue-loop'
 
 new Vue({
-	el: '#app',
+    el: '#app',
 
-	components: {
-		VueLoop
-	}
+    components: {
+        VueLoop
+    }
 })
 ```
 
 ```html
 <vue-loop :full="true" :horizontal="false">
-	<div class="item">
-		1
-	</div>
-	<div class="item">
-		2
-	</div>
-	<div class="item">
-		3
-	</div>
-	<div class="item">
-		4
-	</div>
+    <div class="item">
+        1
+    </div>
+    <div class="item">
+        2
+    </div>
+    <div class="item">
+        3
+    </div>
+    <div class="item">
+        4
+    </div>
 </vue-loop>
 ```
 
