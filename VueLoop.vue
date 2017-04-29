@@ -137,7 +137,7 @@ export default {
 	min-height: 100%;
 	flex: 1;
 	backface-visibility: hidden;
-    transform: translate3d(0,0,0);
+	transform: translate3d(0,0,0);
 }
 
 .loop-container.horizontal {
