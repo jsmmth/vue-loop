@@ -1,5 +1,5 @@
 <template>
-	<div :class="['loop-container', {'full': full, 'horizontal': horizontal}]" @scroll="scrollHandler" ref="container">
+	<div class="loop-container" :class="{'full': full, 'horizontal': horizontal}" @scroll="scrollHandler">
 		<slot></slot>
 	</div>
 </template>
@@ -34,7 +34,7 @@ export default {
 
 		window.addEventListener('resize', () => {
 			this.getDimensions()
-		}, true);
+		}, true);	
 	},
 
 	methods: {
@@ -45,17 +45,19 @@ export default {
 		 * @param  {object} e Event
 		 */
 		scrollHandler(e) {
+			const container = this.$el
+
 			if(!this.horizontal) {
-				var y = this.$refs.container.scrollTop
+				var y = container.scrollTop
 				if (y + this.viewportHeight > this.pageHeight) {
-					this.$refs.container.scrollTop = y % this.pageHeight
+					container.scrollTop = y % this.pageHeight
 				}else if(y + this.viewportHeight == this.pageHeight) {
-					this.$refs.container.scrollTop = 0
+					container.scrollTop = 0
 				}
 			}else{
-				var x = this.$refs.container.scrollLeft
+				var x = container.scrollLeft
 				if (x + this.viewportWidth >= this.pageWidth) {
-					this.$refs.container.scrollLeft = x % this.pageWdith
+					container.scrollLeft = x % this.pageWdith
 				}
 			}
 		},
@@ -66,9 +68,10 @@ export default {
 		 * @return {integer} divisions
 		 */
 		getDimensions() {
-			const numOfItems = this.$refs.container.childElementCount
-			var itemWidth = this.$refs.container.childNodes[0].clientWidth
-			var itemHeight = this.$refs.container.childNodes[0].clientHeight
+			const container = this.$el
+			const numOfItems = container.childElementCount
+			var itemWidth = container.childNodes[0].clientWidth
+			var itemHeight = container.childNodes[0].clientHeight
 
 			if(this.dublicates === false) {
 				this.dublicates = this.makeDublicates() - 1;
@@ -76,27 +79,29 @@ export default {
 
 			this.pageHeight = itemHeight * numOfItems
 			this.pageWidth = itemWidth * (numOfItems + this.dublicates)
-			this.viewportHeight = this.$refs.container.clientHeight
-			this.viewportWidth = this.$refs.container.clientHeight
+			this.viewportHeight = container.clientHeight
+			this.viewportWidth = container.clientHeight
 		},
 
 		/**
 		 * Make dublicates so the scroll is smooth
 		 */
 		makeDublicates() {
+			const container = this.$el
+
 			if(this.horizontal) {
-				var containerSize = this.$refs.container.clientWidth
-				var itemSize = this.$refs.container.childNodes[0].clientWidth
+				var containerSize = container.clientWidth
+				var itemSize = container.childNodes[0].clientWidth
 			}
 
 			if(!this.horizontal) {
-				var containerSize = this.$refs.container.clientHeight
-				var itemSize = this.$refs.container.childNodes[0].clientHeight
+				var containerSize = container.clientHeight
+				var itemSize = container.childNodes[0].clientHeight
 			}
 			var division = containerSize / itemSize;
 
 			for(var i = 0; i < division + 1; i++) {
-				this.$refs.container.appendChild(this.$refs.container.childNodes[i].cloneNode(true));
+				container.appendChild(container.childNodes[i].cloneNode(true));
 			}
 
 			return division;

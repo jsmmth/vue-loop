@@ -785,8 +785,8 @@ module.exports = function bind(fn, thisArg) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_loop__ = __webpack_require__(38);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_loop___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_loop__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__test_VueLoop__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__test_VueLoop___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__test_VueLoop__);
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -794,15 +794,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
  */
 __webpack_require__(28);
 
+//import VueLoop from 'vue-loop';
 
-//import VueLoop from './test/VueLoop';
 
 new Vue({
 	el: '#app',
 
 	//Import the loop container
 	components: {
-		VueLoop: __WEBPACK_IMPORTED_MODULE_0_vue_loop___default.a
+		VueLoop: __WEBPACK_IMPORTED_MODULE_0__test_VueLoop___default.a
 	}
 });
 
@@ -1723,17 +1723,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
    * @param  {object} e Event
    */
 		scrollHandler: function scrollHandler(e) {
+			var container = this.$el;
+
 			if (!this.horizontal) {
-				var y = this.$refs.container.scrollTop;
+				var y = container.scrollTop;
 				if (y + this.viewportHeight > this.pageHeight) {
-					this.$refs.container.scrollTop = y % this.pageHeight;
+					container.scrollTop = y % this.pageHeight;
 				} else if (y + this.viewportHeight == this.pageHeight) {
-					this.$refs.container.scrollTop = 0;
+					container.scrollTop = 0;
 				}
 			} else {
-				var x = this.$refs.container.scrollLeft;
+				var x = container.scrollLeft;
 				if (x + this.viewportWidth >= this.pageWidth) {
-					this.$refs.container.scrollLeft = x % this.pageWdith;
+					container.scrollLeft = x % this.pageWdith;
 				}
 			}
 		},
@@ -1745,9 +1747,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
    * @return {integer} divisions
    */
 		getDimensions: function getDimensions() {
-			var numOfItems = this.$refs.container.childElementCount;
-			var itemWidth = this.$refs.container.childNodes[0].clientWidth;
-			var itemHeight = this.$refs.container.childNodes[0].clientHeight;
+			var container = this.$el;
+			var numOfItems = container.childElementCount;
+			var itemWidth = container.childNodes[0].clientWidth;
+			var itemHeight = container.childNodes[0].clientHeight;
 
 			if (this.dublicates === false) {
 				this.dublicates = this.makeDublicates() - 1;
@@ -1755,8 +1758,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 			this.pageHeight = itemHeight * numOfItems;
 			this.pageWidth = itemWidth * (numOfItems + this.dublicates);
-			this.viewportHeight = this.$refs.container.clientHeight;
-			this.viewportWidth = this.$refs.container.clientHeight;
+			this.viewportHeight = container.clientHeight;
+			this.viewportWidth = container.clientHeight;
 		},
 
 
@@ -1764,19 +1767,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
    * Make dublicates so the scroll is smooth
    */
 		makeDublicates: function makeDublicates() {
+			var container = this.$el;
+
 			if (this.horizontal) {
-				var containerSize = this.$refs.container.clientWidth;
-				var itemSize = this.$refs.container.childNodes[0].clientWidth;
+				var containerSize = container.clientWidth;
+				var itemSize = container.childNodes[0].clientWidth;
 			}
 
 			if (!this.horizontal) {
-				var containerSize = this.$refs.container.clientHeight;
-				var itemSize = this.$refs.container.childNodes[0].clientHeight;
+				var containerSize = container.clientHeight;
+				var itemSize = container.childNodes[0].clientHeight;
 			}
 			var division = containerSize / itemSize;
 
 			for (var i = 0; i < division + 1; i++) {
-				this.$refs.container.appendChild(this.$refs.container.childNodes[i].cloneNode(true));
+				container.appendChild(container.childNodes[i].cloneNode(true));
 			}
 
 			return division;
@@ -21167,7 +21172,7 @@ var Component = __webpack_require__(39)(
   /* cssModules */
   null
 )
-Component.options.__file = "/Users/josephsmith/Sites/vue-content-loop/Examples/node_modules/vue-loop/VueLoop.vue"
+Component.options.__file = "/Users/josephsmith/Sites/vue-content-loop/Examples/assets/js/test/VueLoop.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] VueLoop.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -21178,9 +21183,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-0b93c833", Component.options)
+    hotAPI.createRecord("data-v-83ac3422", Component.options)
   } else {
-    hotAPI.reload("data-v-0b93c833", Component.options)
+    hotAPI.reload("data-v-83ac3422", Component.options)
   }
 })()}
 
@@ -21250,11 +21255,10 @@ module.exports = function normalizeComponent (
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
-    ref: "container",
-    class: ['loop-container', {
-      'full': _vm.full,
-      'horizontal': _vm.horizontal
-    }],
+    staticClass: "loop-container",
+    class: {
+      'full': _vm.full, 'horizontal': _vm.horizontal
+    },
     on: {
       "scroll": _vm.scrollHandler
     }
@@ -21264,7 +21268,7 @@ module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-0b93c833", module.exports)
+     require("vue-hot-reload-api").rerender("data-v-83ac3422", module.exports)
   }
 }
 
@@ -21279,13 +21283,13 @@ var content = __webpack_require__(33);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(42)("fda16132", content, false);
+var update = __webpack_require__(42)("13af793f", content, false);
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
  if(!content.locals) {
-   module.hot.accept("!!../css-loader/index.js!../vue-loader/lib/style-compiler/index.js?{\"id\":\"data-v-0b93c833\",\"scoped\":false,\"hasInlineConfig\":true}!../vue-loader/lib/selector.js?type=styles&index=0!./VueLoop.vue", function() {
-     var newContent = require("!!../css-loader/index.js!../vue-loader/lib/style-compiler/index.js?{\"id\":\"data-v-0b93c833\",\"scoped\":false,\"hasInlineConfig\":true}!../vue-loader/lib/selector.js?type=styles&index=0!./VueLoop.vue");
+   module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"id\":\"data-v-83ac3422\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./VueLoop.vue", function() {
+     var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"id\":\"data-v-83ac3422\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./VueLoop.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
