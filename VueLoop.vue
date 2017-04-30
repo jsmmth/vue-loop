@@ -25,7 +25,7 @@ export default {
 			viewportHeight: 0,
 			pageWidth: 0,
 			viewportWidth: 0,
-			dublicates: false
+			duplicates: false
 		}
 	},
 
@@ -73,20 +73,20 @@ export default {
 			var itemWidth = container.childNodes[0].clientWidth
 			var itemHeight = container.childNodes[0].clientHeight
 
-			if(this.dublicates === false) {
-				this.dublicates = this.makeDublicates() - 1;
+			if(this.duplicates === false) {
+				this.duplicates = this.makeDuplicates() - 1;
 			}
 
 			this.pageHeight = itemHeight * numOfItems
-			this.pageWidth = itemWidth * (numOfItems + this.dublicates)
+			this.pageWidth = itemWidth * (numOfItems + this.duplicates)
 			this.viewportHeight = container.clientHeight
 			this.viewportWidth = container.clientHeight
 		},
 
 		/**
-		 * Make dublicates so the scroll is smooth
+		 * Make duplicates so the scroll is smooth
 		 */
-		makeDublicates() {
+		makeDuplicates() {
 			const container = this.$el
 
 			if(this.horizontal) {
