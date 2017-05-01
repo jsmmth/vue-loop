@@ -5,6 +5,12 @@ We've had a lot of people compliment us on the infinite content loop we did over
 
 [Live Demo](https://cdn.rawgit.com/lookstudios/vue-loop/ea086525/Examples/public/index.html)
 
+## Showcase
+Sites using Vue Loop 💙
+
+- [Look Studios](http://lookstudios.co)
+- [Submit your site](https://github.com/lookstudios/vue-loop/issues/new)
+
 ## Installation
 `npm install vue-loop --save`
 
