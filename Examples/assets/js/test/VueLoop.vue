@@ -1,5 +1,5 @@
 <template>
-	<div class="loop-container" :class="{'full': full, 'horizontal': horizontal}" @scroll="scrollHandler">
+	<div class="loop-container" :class="{'full': full, 'horizontal': horizontal}">
 		<slot></slot>
 	</div>
 </template>
@@ -7,6 +7,10 @@
 <script>
 export default {
 
+	/**
+	 * Define props
+	 */
+	
 	props: {
 		full: {
 			type: Boolean,
@@ -19,21 +23,43 @@ export default {
 		}
 	},
 
+	/**
+	 * Initialize default data
+	 * 
+	 * @return {object}
+	 */
+	
 	data() {
 		return {
 			pageHeight: 0,
 			viewportHeight: 0,
 			pageWidth: 0,
 			viewportWidth: 0,
-			dublicates: false
+			dublicates: false,
+			isTouch: false
 		}
 	},
 
+	/**
+	 * When the component is mounted
+	 */
+	
 	mounted() {
-		this.getDimensions()	
+		const vm = this;
 
+		//When the window has loaded we're going to work out the dimentions
+		window.addEventListener('load', () => {
+			vm.getDimensions()	
+		})
+		
+		//When the window is resized we want to re-calculate the dimentions
 		window.addEventListener('resize', () => {
-			this.getDimensions()
+			vm.getDimensions()
+		}, true);
+
+		//When the element is scrolled
+		vm.$el.addEventListener('scroll', (event) => {
+			vm.scrollHandler();
 		}, true);
 	},
 
@@ -41,74 +67,68 @@ export default {
 
 		/**
 		 * Scroll handler
-		 * 
-		 * @param  {object} e Event
 		 */
-		scrollHandler(e) {
+		
+		scrollHandler() {
 			const container = this.$el
 
 			if(!this.horizontal) {
 				var y = container.scrollTop
 				if (y + this.viewportHeight > this.pageHeight) {
 					container.scrollTop = y % this.pageHeight
-				}else if(y + this.viewportHeight == this.pageHeight) {
-					container.scrollTop = 0
 				}
 			}else{
 				var x = container.scrollLeft
-				if (x + this.viewportWidth >= this.pageWidth) {
+				if (x >= this.pageWidth) {
 					container.scrollLeft = x % this.pageWdith
 				}
 			}
 		},
 
+
 		/**
 		 * Get dimentions of the page and viewport
-		 * 
-		 * @return {integer} divisions
 		 */
+		
 		getDimensions() {
 			const container = this.$el
-			const numOfItems = container.childElementCount
-			var itemWidth = container.childNodes[0].clientWidth
-			var itemHeight = container.childNodes[0].clientHeight
 
 			if(this.dublicates === false) {
-				this.dublicates = this.makeDublicates() - 1;
+				this.dublicates = this.makeDublicates();
 			}
 
+			const numOfItems = container.childElementCount - this.dublicates
+			const itemWidth = container.childNodes[0].clientWidth
+			const itemHeight = container.childNodes[0].clientHeight
+
 			this.pageHeight = itemHeight * numOfItems
-			this.pageWidth = itemWidth * (numOfItems + this.dublicates)
+			this.pageWidth = itemWidth * numOfItems
 			this.viewportHeight = container.clientHeight
 			this.viewportWidth = container.clientHeight
 		},
 
+
 		/**
 		 * Make dublicates so the scroll is smooth
 		 */
+		
 		makeDublicates() {
 			const container = this.$el
-
 			if(this.horizontal) {
 				var containerSize = container.clientWidth
 				var itemSize = container.childNodes[0].clientWidth
 			}
-
 			if(!this.horizontal) {
 				var containerSize = container.clientHeight
 				var itemSize = container.childNodes[0].clientHeight
 			}
 			var division = containerSize / itemSize;
-
 			for(var i = 0; i < division + 1; i++) {
 				container.appendChild(container.childNodes[i].cloneNode(true));
 			}
-
 			return division;
 		}
 	}
-
-
 }
 </script>
 
