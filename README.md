@@ -4,6 +4,8 @@
 We've had a lot of people compliment us on the infinite content loop we did over at [Look Studios](http://lookstudios.xyz). We decided to build a simple .vue file for all you vue fans to use.
 
 [Live Demo](https://cdn.rawgit.com/lookstudios/vue-loop/ea086525/Examples/public/index.html)
+[Horizontal Demo](https://cdn.rawgit.com/lookstudios/vue-loop/ea086525/Examples/public/horizontal.html)
+[Contained Demo](https://cdn.rawgit.com/lookstudios/vue-loop/ea086525/Examples/public/contained.html)
 
 ## Showcase
 Sites using Vue Loop 💙

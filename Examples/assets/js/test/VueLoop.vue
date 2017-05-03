@@ -91,20 +91,24 @@ export default {
 		 */
 		
 		getDimensions() {
-			const container = this.$el
+			const vm = this;
+			const container = vm.$el
 
-			if(this.duplicates === false) {
-				this.duplicates = this.makeDuplicates();
+			if(vm.duplicates === false) {
+				vm.duplicates = vm.makeDuplicates();
 			}
 
-			const numOfItems = container.childElementCount - this.duplicates
-			const itemWidth = container.childNodes[0].clientWidth
-			const itemHeight = container.childNodes[0].clientHeight
+			const numOfItems = container.querySelectorAll('.item').length - vm.duplicates;
 
-			this.pageHeight = itemHeight * numOfItems
-			this.pageWidth = itemWidth * numOfItems
-			this.viewportHeight = container.clientHeight
-			this.viewportWidth = container.clientHeight
+			for(var i = 0; i < numOfItems; i++) {
+				const itemWidth = container.querySelectorAll('.item')[i].clientWidth
+				const itemHeight = container.querySelectorAll('.item')[i].clientHeight
+				vm.pageHeight = vm.pageHeight + itemHeight
+				vm.pageWidth = vm.pageWidth + itemWidth
+			}
+			
+			vm.viewportHeight = container.clientHeight
+			vm.viewportWidth = container.clientHeight
 		},
 
 
