@@ -72,15 +72,19 @@ export default {
 		scrollHandler() {
 			const container = this.$el
 
-			if(!this.horizontal) {
-				var y = container.scrollTop
+			if (!this.horizontal) {
+				var y = container.scrollTop;
 				if (y + this.viewportHeight > this.pageHeight) {
-					container.scrollTop = y % this.pageHeight
+					container.scrollTop = y % this.pageHeight;
+				} else if (y + this.viewportHeight == this.pageHeight) {
+					container.scrollTop = 0;
 				}
-			}else{
-				var x = container.scrollLeft
-				if (x >= this.pageWidth) {
-					container.scrollLeft = x % this.pageWdith
+			} else {
+				var x = container.scrollLeft;
+				if (x + this.viewportWidth > this.pageWidth) {
+					container.scrollLeft = x % this.pageWdith;
+				} else if (x + this.viewportWidth == this.pageWidth) {
+					container.scrollLeft = 0;
 				}
 			}
 		},
@@ -108,7 +112,7 @@ export default {
 			}
 			
 			vm.viewportHeight = container.clientHeight
-			vm.viewportWidth = container.clientHeight
+			vm.viewportWidth = container.clientWidth
 		},
 
 
